@@ -10,7 +10,7 @@ class ViewController: UIViewController {
     
     
     //VARIABLES
-    var seconds = 10
+    var seconds = 300
     var timer = Timer()
     var isTimerRunning = false
     var resumeTapped = false
@@ -39,7 +39,7 @@ class ViewController: UIViewController {
     
     @IBAction func resetButtonTapped(_ sender: Any) {
         timer.invalidate()
-        seconds = 10
+        seconds = 300
         timerLabel.text = timeString(time: TimeInterval(seconds))
         isTimerRunning = false
         pauseButton.isEnabled = false
