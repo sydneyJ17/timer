@@ -10,7 +10,7 @@ class ViewController: UIViewController {
     
     
     //VARIABLES
-    var seconds = 60
+    var seconds = 10
     var timer = Timer()
     var isTimerRunning = false
     var resumeTapped = false
@@ -39,7 +39,7 @@ class ViewController: UIViewController {
     
     @IBAction func resetButtonTapped(_ sender: Any) {
         timer.invalidate()
-        seconds = 60
+        seconds = 10
         timerLabel.text = timeString(time: TimeInterval(seconds))
         isTimerRunning = false
         pauseButton.isEnabled = false
@@ -61,7 +61,13 @@ class ViewController: UIViewController {
     @objc func updateTimer() {
         if seconds < 1 {
             timer.invalidate()
-            //Send alert to indicate "time's up!"
+            
+// WILL SEND ALERT WHEN TIMERS COMPLETE
+            let alert = UIAlertController(title: "Times Up!", message: "Meditation Complete.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true)
+            
+            
         } else {
             seconds -= 1
             timerLabel.text = timeString(time: TimeInterval(seconds))
@@ -76,6 +82,13 @@ class ViewController: UIViewController {
     }
     
 }
+
+
+
+
+
+
+
 
 
 
